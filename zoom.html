@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/zoom.css">
+  </head>
+  <body>
+    <div id="zoomStart">
+      <div id="mainContainer">
+        <img src="./img/logo.png" id="logo"/>
+        <img src="./img/button/mainBt1.png" class="mainBt bt" id="mainBt1"/>
+        <img src="./img/button/mainBt2.png" class="mainBt bt" id="mainBt2"/>
+      </div>
+      <div id="wayContainer"> 
+        <i class="fa fa-caret-left backCaret" id="WayToMain"></i>
+        <img src="./img/gameway.png" id="way"> 
+      </div>
+      <div id="meetContainer">
+        <i class="fa fa-caret-left backCaret" id="MeetToMain"></i>
+        <img src="./img/meet.png" id="meetBack">
+        <img src="./img/button/meetBt.png" class="bt" id="meetBt">
+        <img src="./img/meetName.png" id="meetName">
+        <input type="text" id="meetInput" placeholder="이름을 입력하세요">
+      </div>
+      <div id="listContainer">
+        <i class="fa fa-caret-left backCaret" id="ListToMeet"></i>
+        <img src="./img/list.png" id="listBack">
+        <div id="listButtons">
+          <img src="./img/button/listBt.png" class="listBt">
+          <img src="./img/button/listBt.png" class="listBt">
+          <img src="./img/button/listBt.png" class="listBt">
+          <img src="./img/button/listBt.png" class="listBt">
+          <img src="./img/button/endMeeting.png" id="endMeeting" class="bt">
+        </div>
+      </div>
+      <div id="waitContainer">
+        <p id="teacherName"></p>
+        <img src="./img/wait.gif" id="wait" alt="">
+      </div>
+      <div id="endingContainer">
+        <canvas id="endingCanvas"></canvas>
+        <img id="endingImg">
+        <img style="display: none;" src="./img/button/redo.png" id="redo" class="bt">
+      </div>
+    </div>
+    <div id="zoomGame">
+      <div id="top">
+        <div id="score">
+          <p id="timer"></p>
+          <p id="scoreNum"> </p>
+          <p id="scoreLabel">score : </p>
+          <p id="scoreDelta"> </p>
+        </div>
+        <div id="page1">
+          <div class="bigBlock"><img src="./img/t1.png" id="teacherImg"></div>
+        </div>
+        <div id="page2">
+          <div class="block" id="1-1"><p class="name"></p></div>
+          <div class="block" id="1-2"><p class="name"></p></div>
+          <div class="block" id="1-3"><p class="name"></p></div>
+          <div class="block" id="1-4"><p class="name"></p></div>
+          
+          <div class="block" id="2-1"><p class="name"></p></div>
+          <div class="block" id="2-2"><p class="name"></p></div>
+          <div class="block" id="2-3"><p class="name"></p></div>
+          <div class="block" id="2-4"><p class="name"></p></div>
+          
+          <div class="block" id="3-1"><p class="name"></p></div>
+          <div class="block" id="3-2"><p class="name"></p></div>
+          <div class="block" id="3-3"><p class="name"></p></div>
+          <div class="block" id="3-4"><p class="name"></p></div>
+        </div>
+      </div>
+      <div id="pageCtrl">
+        <i class="fa fa-caret-left caret" id="leftCaret"></i>
+        <p id="pageNum">1</p>
+        <i class="fa fa-caret-right caret" id="rightCaret"></i>
+      </div>
+      <div id="alert">
+        <img src="./img/alert.png" alt="">
+        <p id="seconds">3</p>
+      </div>
+    </div>
+    <div style="display: none;">
+      <img src="img/back.png">
+      <img src="img/gameway.png">
+      <img src="img/list.png">
+      <img src="img/logo.png">
+      <img src="img/meet.png">
+      <img src="img/meetName.png">
+      <img src="img/t1.png">
+      <img src="img/t2.png">
+      <img src="img/t3.png">
+      <img src="img/t4.png">
+      <img src="img/button/listBt.png">
+      <img src="img/button/listBt1.png">
+      <img src="img/button/listDone.png">
+      <img src="img/button/mainBt1.png">
+      <img src="img/button/mainBt11.png">
+      <img src="img/button/mainBt2.png">
+      <img src="img/button/mainBt21.png">
+      <img src="img/button/meetBt.png">
+      <img src="img/button/meetBt1.png">
+    </div>
+    <script src="./js/zoom.js">
+      var audioStart = new audioStart('start.mp3');
+      /*추가된 부분: 종료되면 처음부터 다시 재생*/
+      audioStart.addEventListener('ended', function() { 
+          this.currentTime = 0;
+          this.play();
+      }, false);
+  </script>
+  </body>
+</html>
