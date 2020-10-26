@@ -1,0 +1,438 @@
+@font-face { 
+  font-family: 'Bazzi'; 
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff'); 
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+body {
+  background-color: darkslategrey;
+  font-family: 'Bazzi'; 
+  font-weight: bold; 
+  font-style: normal; 
+}
+
+p {
+  display: inline-block;
+  margin: 0;
+}
+
+#zoomStart {
+  overflow: hidden;
+  width: 700px;
+  height: 550px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: #f4f4f4;
+}
+
+
+
+#mainContainer {
+  width: 100%;
+  height: 100%;
+
+  background-color: #f4f4f4;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#mainContainer #logo {
+  width: 60%;
+}
+
+#mainContainer .mainBt {
+  cursor: pointer;
+  margin-top: 50px;
+  width: 40%;
+}
+
+.backCaret {
+  cursor: pointer;
+  z-index: 200;
+  margin: 20px 10px 0 30px;
+  font-size: 100px;
+  color: coral;
+  display: inline;
+}
+
+.backCaret:hover {
+  color: red;
+}
+
+#wayContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+  display: none;
+  flex-direction: row;
+}
+
+#wayContainer #way {
+  height: 100%;
+}
+
+
+#meetContainer {
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: row;  
+  background-color: #f4f4f4;
+}
+
+#meetContainer #meetBack {
+  height: 100%;
+  position: absolute;
+}
+
+#meetContainer #meetBt {
+  cursor: pointer;
+  z-index: 50;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 155px;
+  width: 370px;
+  left: 0;
+  right: 0;
+}
+
+#meetContainer #meetName {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 600px;
+  left: 0;
+  right: 0;
+}
+
+#meetInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  position: absolute;
+  color: #d3dde8;
+  font-weight: 100;
+  z-index: 200;
+  width: 300px;
+  height: 55px;
+  top: 244px;
+  left: 190px;
+  border-radius: 10px;
+  
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #d3dde8;
+  opacity: 1; /* Firefox */
+}
+
+#listContainer {
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: row;  
+  background-color: #f4f4f4;
+}
+
+#listContainer #listBack {
+  height: 100%;
+  position: absolute;
+}
+
+#listContainer #listButtons {
+  position: absolute;
+  right: 170px;
+  top: 55px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+#listContainer .listBt {
+  cursor: pointer;
+  z-index: 100;
+  width: 100px;
+  margin-top: 20px;
+}
+
+#listContainer #endMeeting {
+  display: none;
+  cursor: pointer;
+  z-index: 100;
+  width: 100px;
+  margin-top: 20px;
+}
+
+#waitContainer {
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: row;  
+  background-color: #f4f4f4;
+}
+
+#waitContainer #wait {
+  position: absolute;
+  width: 100%;
+}
+
+#waitContainer #teacherName {
+  z-index: 1000;
+  position: absolute;
+  top: 310px;
+  left: 190px;
+  color: #677585;
+  font-weight: lighter;
+  font-size: 28px;
+}
+
+#endingContainer {
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: row;  
+  background-color: #f4f4f4;
+}
+
+#endingContainer #endingImg {
+  width: 100%;
+}
+
+#endingContainer #redo {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 130px;
+}
+
+#endingContainer #endingCanvas {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+}
+
+
+#zoomGame {
+  display: none;
+  overflow: hidden;
+  width: 900px;
+  height: 675px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  
+  background-image: url(../img/back.png);
+
+  border-radius: 10px;
+}
+
+#top {
+  margin: auto auto 0 auto;
+  width: 95%;
+  height: calc(598px - 80px);
+}
+
+#timer {
+  float: left;
+}
+
+#score {
+  width: 100%;
+  margin-top: 5px;
+  height: 25px;
+
+  color: white;
+  font-size: 24px;
+}
+
+#scoreLabel {
+  float: right;
+  margin-right: 20px;
+}
+
+#scoreNum {
+  float: right;
+}
+
+#scoreDelta {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  z-index: 5;
+  color: red;
+  font-size: 18px;
+}
+
+#page2 {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+#page1 {
+  width: 100%;
+  height: 100%;
+}
+
+.bigBlock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bigBlock img {
+  border-radius: 10px;
+  height: 70%;
+}
+
+#pageCtrl {
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+i {
+  display: inline-block;
+}
+
+#pageNum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  margin: 0;
+  font-size: 30px;
+  color: white;
+  margin: 0 20px;
+}
+
+.caret {
+  cursor: pointer;
+  color: magenta;
+  font-size: 48px;
+}
+
+.caret:hover {
+  color: red;
+}
+
+.block {
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #141414;
+  width: 177px;
+  height: 133px;
+  border-radius: 5px;
+  margin: auto;
+
+  overflow: hidden;
+}
+
+.block:hover {
+  background-color: #676870;
+}
+
+.block .name {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.correct {
+  box-sizing: border-box;
+  border: 6px solid yellowgreen;
+  border-radius: 0;
+}
+
+.wrong {
+  box-sizing: border-box;
+  border: 6px solid red;
+  border-radius: 0;
+
+}
+
+.blockImg {
+  width: 100%;
+  height: 100%;
+}
+
+#alert {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  
+  /* backdrop-filter: blur(5px); */
+}
+
+#alert img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 600px;
+}
+
+#alert #seconds {
+  position: absolute;
+  top: 347px;
+  right: 567px;
+  background-color: transparent;
+  font-weight: lighter;
+  font-size: 35px;
+}
+
+.disappear {
+  animation: disappear 0.5s ease;
+}
+
+.appear {
+  animation: appear 0.5s ease;
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+
+  top {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  top {
+    opacity: 1;
+  }
+}
